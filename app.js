@@ -5,7 +5,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const placesRoutes = require('./routes/places-routes');
+const postsRoutes = require('./routes/posts-routes');
 const usersRoutes = require('./routes/users-routes');
 const HttpError = require('./models/http-error');
 
@@ -26,7 +26,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/api/places', placesRoutes);
+app.use('/api/posts', postsRoutes);
 app.use('/api/users', usersRoutes);
 
 app.use((req, res, next) => {
@@ -49,7 +49,7 @@ app.use((error, req, res, next) => {
 
 mongoose
   .connect(
-    'mongodb+srv://admin2:admin2@instagramstudento.skqum.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+    'mongodb+srv://uros:uros@instagramstudento.skqum.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
   )
   .then(() => {
     app.listen(5000);
